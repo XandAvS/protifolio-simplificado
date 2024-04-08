@@ -1,0 +1,207 @@
+html{
+    color: #fff;
+    scroll-behavior: smooth; /*faz uma transição mais suave dentro da pagina quando usa os ancoras*/
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    margin: 0 auto; /*isso faz com que tudo fique alinhado no meio do site*/
+    max-width: 1120px; /*definindo largura maxima que limita o corpo e mostra de forma mais alinhada ao meio*/
+    background: linear-gradient(150deg, #000000, #ff7b00);
+    background-size: 120% 120%;
+}
+
+.cabecalho{
+    /*colocar um do lado do outro e o flex ja coloca um do lado do outro com o comando flex-directino: row;*/
+    display: flex;
+    justify-content: space-between;
+    /*space cria um espaço entre eles*/
+    align-items: center;
+    /*alinhamento no meio da linha*/
+    padding: 30px 15px;
+
+}
+
+.cabecalho .logo{
+    /*especificando qual deve mexer*/
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    text-decoration: underline;
+    text-align: center;
+    line-height: 55px;
+    font-family: "Raleway", sans-serif;
+    transition: 0.2s;
+}
+
+.cabecalho a:hover .logo{
+    color: #ff7b00;
+    border: 2px solid#ff7b00;
+}
+
+.cabecalho .menu li a{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    transition: 0.2s;
+}
+.cabecalho .menu li a:hover{
+    background-color: #ff7b00;
+    color: #fff;
+    border-radius: 50px;
+    
+}
+.home{
+    display: flex;
+    min-height: calc(100vh -125px); /*faz com que isso ocupe a primeira ela por completo e com o calculo tirando a altura do menu*/
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.home .informacoes{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    letter-spacing: 2px;
+    padding: 0 15px;
+    max-width: 50%; /*medida relativa variando de tela a tela*/
+}
+.home .informacoes h1{
+    font-family: "Raleway" sans-serif;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.home .informacoes p {
+	font-family: "Raleway", sans-serif;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.home .redes-sociais{
+    display: flex;
+    gap: 20px;
+}
+.home .redes-sociais a i{
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: 26px;
+    transition: 0.3s;
+}
+.home .redes-sociais a i:hover{
+    color: #ff7b00;
+    border: 1px solid #ff7b00;
+    transform: scale(1.1);
+}
+.home .container-foto .foto{
+    max-width: 450px;
+    border-radius: 50%;
+}
+.home .container-foto img{
+    width: 100%;
+    border-radius: 50%;
+    background: linear-gradient();
+}
+.home .foto.sombra-interna{
+    background: linear-gradient(to right, #ff7b00, #c01818, #eede00); /*cria um gradiente de cores no sentido horizontal*/
+    background-size: 180% 180%;
+    animation: gradient-animation 5s ease infinite; /*definindo a animação e onde ela vai mudar*/
+}
+.projetos{
+    padding: 70px 0 70px;
+}
+.projetos .titulo{
+    text-align: center;
+    padding: 60px 0;
+    font-size: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.projetos .container-projetos{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /*quebra um do lado do outro pelo tamanho da tela*/
+    margin-bottom: 20px;
+    justify-content: center;
+}
+.projetos .projeto{
+    max-width: 260px;
+    max-height: 500px;
+    position: relative;
+    display: none;
+}
+.projetos .projeto.ativo{
+    display: block;
+}
+.projetos .projeto img{
+    height: 100%;
+}
+
+.projetos .projeto h3{
+    background-color: #040203;
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: absolute; /*coloca por cima do card do projeto e a div pai tem que sempte ter o positino:relative*/
+    bottom: 0;
+
+}
+.projetos .projeto .informacoes-projeto{
+    background-color: #040203;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.3s;
+    padding: 20px;
+}
+.projetos .container-projetos .projeto:hover .informacoes-projeto{
+    opacity: 0.7;
+    border-color: #000;
+
+}
+.projetos .btn-mostrar-projetos{
+    background: none;
+	border: 1px solid #fff;
+	border-radius: 15px;
+	color: #fff;
+	width: 180px;
+	padding: 20px;
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.projetos .btn-mostrar-projetos:hover{
+    background-color: #ff7b00;
+    transition: 0.3s;
+}
+.projetos.btn-mostrar-projetos.remover{
+    display: none;
+}
+
+@keyframes gradient-animation{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+    /*animação para movimentar as cores dentro do espaço da imagem*/
+}
